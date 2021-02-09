@@ -115,13 +115,13 @@ void	ft_print_ud(flag_t *check_val)
 	i = 0;
 	check_val->u = ft_convert_u(va_arg(*check_val->arg, int), 10);
 	ft_filltroncstr(&tronc, check_val);
-	if (check_val->less && check_val->u)
+	if (check_val->less && check_val->u[0] != '0')
 		ft_putstr(check_val->u, check_val);
 	while (i < check_val->width - tronc)
 	{
 		ft_putchar(' ', check_val);
 		i++;
 	}
-	if (!check_val->less && check_val->u)
+	if (!check_val->less && check_val->u[0] != '0')
 		ft_putstr(check_val->u, check_val);
 }

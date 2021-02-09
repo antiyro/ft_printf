@@ -159,6 +159,6 @@ void	ft_filltroncstr(int *tronc, flag_t *check_val)
 	}
 	else
 		*tronc = (int)ft_strlen(check_val->u);
-	if (check_val->dot && !check_val->precision && !check_val->u && check_val->dot != 2)
+	if (check_val->dot && !check_val->precision && check_val->u[0] == '0' && check_val->dot != 2)
 		*tronc = 0;
 }
