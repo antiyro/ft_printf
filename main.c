@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv)
 {
-    ft_printf("%-*.4d", 0, 198);
+    ft_printf("-->|%-4.*d|<--\n", 3, -12);
     printf("\n");
-    printf("%-*.4d", 0, 198);
+    printf("-->|%-4.*d|<--\n", 3, -12);
 }

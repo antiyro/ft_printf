@@ -54,7 +54,7 @@ void	ft_verify_precision(flag_t *check_val)
     int i;
 
     i = 0;
-    check_val->dot = 1;
+
     while (check_val->flag[i] != '.')
         i++;
     while (check_val->flag[i])
@@ -62,6 +62,7 @@ void	ft_verify_precision(flag_t *check_val)
         if (check_val->flag[i] == '-')
         {
             check_val->precision = 0;
+            check_val->dot = 2;
             break ;
         }
         if (check_val->flag[i] == '*')
@@ -70,6 +71,7 @@ void	ft_verify_precision(flag_t *check_val)
             if (check_val->precision < 0)
             {
                 check_val->precision = 0;
+                check_val->dot = 2;
                 break ;
             }
             break ;
@@ -80,4 +82,14 @@ void	ft_verify_precision(flag_t *check_val)
     }
     if (check_val->flag[i] == '.')
         check_val->precision = 0;
+    if (!check_val->precision && check_val->dot != 2)
+        check_val->dot = 1;
+}
+
+void    ft_verify_less(flag_t *check_val)
+{
+    if (check_val->less)
+        check_val->zero = 0;
+    if (check_val->precision)
+        check_val->zero = 0;
 }

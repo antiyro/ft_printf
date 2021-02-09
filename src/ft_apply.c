@@ -224,12 +224,12 @@ void    ft_printargs(const char *format, int i, flag_t *check_val)
         ft_putchar('%', check_val);*/
     if (format[i] == 'd')
         ft_print_d(check_val);
-    /*else if (format[i] == 'c')
-        ft_print_c(arg, check_val);
+    else if (format[i] == 'c')
+        ft_print_c(check_val);/*
     else if (format[i] == 's')
-        ft_print_s(arg, check_val);
+        ft_print_s(arg, check_val);*/
     else if (format[i] == 'u')
-        ft_print_u(arg, check_val);
+        ft_print_u(check_val);/*
     else if (format[i] == 'x')
         ft_print_x(arg, check_val);
     else if (format[i] == 'X')

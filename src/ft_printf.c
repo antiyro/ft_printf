@@ -25,6 +25,7 @@ void			ft_parsingflags(flag_t *check_val)
 	        ft_verify_precision(check_val);
             i++;
     }
+	ft_verify_less(check_val);
 }
 
 void			ft_parsingargs(const char *format, int i, flag_t *check_val)
@@ -87,7 +88,6 @@ int			ft_printf(const char *format, ...)
 {
 	va_list	arg;
 	flag_t	check_val;
-
 	check_val.ret = 0;
 	va_start(arg, format);
     check_val.arg = &arg;

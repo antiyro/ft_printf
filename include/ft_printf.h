@@ -26,6 +26,8 @@ typedef struct flag_t
 	char	arg_t;
 	int		ret;
 	int 	d;
+	int 	c;
+	char 	*u;
 	char	*flag;
 	int		zero;
 	int		less;
@@ -38,16 +40,13 @@ typedef struct flag_t
 # define ERROR ft_putstr("ERROR\n", check_val);
 # define TEST tester('!');
 
-int					ft_printf(const char *format, ...);
+//TOOLS
 int					ft_check_flag(char c);
 int					ft_check_args(char c);
 void				ft_valneg(flag_t *check_val);
+void				ft_filltronc(int *tronc, flag_t *check_val);
+void				ft_filltroncstr(int *tronc, flag_t *check_val);
 void				init_flag_t(flag_t *check_flag);
-void    			ft_parsing(const char *format, flag_t *check_val);
-void     			ft_parsingargs(const char *format, int i, flag_t *check_val);
-void				ft_parsingflags(flag_t *check_val);
-void    			ft_verify_width(flag_t *check_val);
-void				ft_verify_precision(flag_t *check_val);
 char				*ft_convert_maj(unsigned int num, int base);
 char				*ft_convert_min(unsigned int num, int base);
 char  				*ft_convert_u(int nb, int base);
@@ -56,6 +55,18 @@ char  				*ft_convert_p(unsigned long long nb, int base);
 int					ft_convlen(unsigned int num);
 char				*ft_reverse(char *str, unsigned long long num);
 int					ft_flag_size(const char *format);
+
+//PRINTF
+int					ft_printf(const char *format, ...);
+void    			ft_parsing(const char *format, flag_t *check_val);
+void     			ft_parsingargs(const char *format, int i, flag_t *check_val);
+void				ft_parsingflags(flag_t *check_val);
+
+//VERIFY
+void    			ft_verify_width(flag_t *check_val);
+void				ft_verify_precision(flag_t *check_val);
+void    			ft_verify_less(flag_t *check_val);
+
 void				ft_printcontrol(const char *format, va_list arg, flag_t *check_val);
 void				ft_print_percent(flag_t *check_val);
 void				ft_printargs(const char *format, int i, flag_t *check_val);
@@ -63,7 +74,19 @@ void				ft_print_d(flag_t *check_val);
 void    			ft_print_dw(flag_t *check_val);
 void    			ft_print_dp(flag_t *check_val);
 void    			ft_print_dwp(flag_t *check_val);
+void    			ft_print_dwp2(flag_t *check_val, int *tronc);
 void    			ft_print_dd(flag_t *check_val);
+void				ft_print_c(flag_t *check_val);
+void        		ft_print_c_w(flag_t *check_val);
+void        		ft_print_c_z(flag_t *check_val);
+void        		ft_print_c_pz(flag_t *check_val);
+void    			ft_print_c_wz(flag_t *check_val);
+void				ft_print_u(flag_t *check_val);
+void    			ft_print_uw(flag_t *check_val);
+void    			ft_print_up(flag_t *check_val);
+void    			ft_print_uwp(flag_t *check_val);
+void    			ft_print_uwp2(flag_t *check_val, int *tronc);
+void    			ft_print_ud(flag_t *check_val);
 
 
 #endif

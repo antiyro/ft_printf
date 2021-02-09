@@ -132,3 +132,33 @@ void	tester(char c)
 {
 	write(1, &c, 1);
 }
+
+void	ft_filltronc(int *tronc, flag_t *check_val)
+{
+	if ((int)ft_nbrlen(check_val->d) <= check_val->precision)
+	{
+		if (check_val->d < 0)
+			*tronc = check_val->precision + 1;
+		else
+			*tronc = check_val->precision;
+	}
+	else
+		*tronc = (int)ft_nbrlen(check_val->d);
+	if (check_val->dot && !check_val->precision && !check_val->d && check_val->dot != 2)
+		*tronc = 0;
+}
+
+void	ft_filltroncstr(int *tronc, flag_t *check_val)
+{
+	if ((int)ft_strlen(check_val->u) <= check_val->precision)
+	{
+		if (check_val->u < 0)
+			*tronc = check_val->precision + 1;
+		else
+			*tronc = check_val->precision;
+	}
+	else
+		*tronc = (int)ft_strlen(check_val->u);
+	if (check_val->dot && !check_val->precision && !check_val->u && check_val->dot != 2)
+		*tronc = 0;
+}

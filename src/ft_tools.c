@@ -57,15 +57,18 @@ char *ft_convert_min(unsigned int num, int base)
 	return(ptr);
 }
 
-void		init_flag_t(flag_t *check_flag)
+void		init_flag_t(flag_t *check_val)
 {
-	check_flag->arg_t = '\0';
-	check_flag->less = 0;
-	check_flag->zero = 0;
-	check_flag->precision = 0;
-	check_flag->dot = 0;
-	check_flag->star = 0;
-	check_flag->width = 0;
+	check_val->arg_t = '\0';
+	check_val->d = 0;
+	check_val->c = 0;
+	check_val->u = 0;
+	check_val->less = 0;
+	check_val->zero = 0;
+	check_val->precision = 0;
+	check_val->dot = 0;
+	check_val->star = 0;
+	check_val->width = 0;
 	//completer avec les autres flags
 }
 
