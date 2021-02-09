@@ -28,6 +28,7 @@ typedef struct flag_t
 	int 	d;
 	int 	c;
 	char 	*u;
+	char 	*x;
 	char	*flag;
 	int		zero;
 	int		less;
@@ -87,6 +88,12 @@ void    			ft_print_up(flag_t *check_val);
 void    			ft_print_uwp(flag_t *check_val);
 void    			ft_print_uwp2(flag_t *check_val, int *tronc);
 void    			ft_print_ud(flag_t *check_val);
+void				ft_print_x(flag_t *check_val);
+void    			ft_print_xw(flag_t *check_val);
+void    			ft_print_xp(flag_t *check_val);
+void    			ft_print_xwp(flag_t *check_val);
+void    			ft_print_xwp2(flag_t *check_val, int *tronc);
+void    			ft_print_xd(flag_t *check_val);
 
 
 #endif

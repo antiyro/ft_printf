@@ -3,7 +3,5 @@
 
 int main(int argc, char **argv)
 {
-    ft_printf("-->|%-4.*d|<--\n", 3, -12);
-    printf("\n");
-    printf("-->|%-4.*d|<--\n", 3, -12);
+    ft_printf("%7x", 33);
 }

@@ -229,9 +229,9 @@ void    ft_printargs(const char *format, int i, flag_t *check_val)
     else if (format[i] == 's')
         ft_print_s(arg, check_val);*/
     else if (format[i] == 'u')
-        ft_print_u(check_val);/*
+        ft_print_u(check_val);
     else if (format[i] == 'x')
-        ft_print_x(arg, check_val);
+        ft_print_x(check_val);/*
     else if (format[i] == 'X')
         ft_print_X(arg, check_val);*/
     else if (format[i] == 'i')
