@@ -24,7 +24,7 @@ void	ft_print_x(flag_t *check_val)
 	else if (check_val->precision && check_val->width)
 		ft_print_xwp(check_val);
 	else
-		ft_putstr(ft_convert_min(va_arg(*check_val->arg, int), 16), check_val);
+		ft_putstr(ft_convert_x(va_arg(*check_val->arg, int), 16), check_val);
 }
 
 void	ft_print_xw(flag_t *check_val)
@@ -33,7 +33,7 @@ void	ft_print_xw(flag_t *check_val)
 
 	i = 0;
 	if (!check_val->x)
-		check_val->x = ft_convert_min(va_arg(*check_val->arg, int), 16);
+		check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16);
 	if (check_val->less)
 		ft_putstr(check_val->x, check_val);
 	while (i < check_val->width - (int)ft_strlen(check_val->x))
@@ -53,7 +53,7 @@ void	ft_print_xp(flag_t *check_val)
 	int i;
 
 	i = 0;
-	check_val->x = ft_convert_min(va_arg(*check_val->arg, int), 16);
+	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16);
 	if (check_val->less)
 		ft_putstr(check_val->x, check_val);
 	while (i < check_val->precision - (int)ft_strlen(check_val->x))
@@ -71,8 +71,8 @@ void	ft_print_xwp(flag_t *check_val)
 	int tronc;
 
 	i = 0;
-	check_val->x = ft_convert_min(va_arg(*check_val->arg, int), 16);
-	ft_filltroncstr(&tronc, check_val);
+	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16);
+	ft_filltroncx(&tronc, check_val);
 	if (check_val->less)
 	{
 		while (i < check_val->precision - (int)ft_strlen(check_val->x))
@@ -113,8 +113,8 @@ void	ft_print_xd(flag_t *check_val)
 	int tronc;
 
 	i = 0;
-	check_val->x = ft_convert_min(va_arg(*check_val->arg, int), 16);
-	ft_filltroncstr(&tronc, check_val);
+	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16);
+	ft_filltroncx(&tronc, check_val);
 	if (check_val->less && check_val->x[0] != '0')
 		ft_putstr(check_val->x, check_val);
 	while (i < check_val->width - tronc)

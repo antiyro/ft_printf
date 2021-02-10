@@ -13,7 +13,7 @@
 #include "../include/ft_printf.h"
 #include "libft/libft.h"
 
-char *ft_convert_maj(unsigned int num, int base)
+char *ft_convert_X(unsigned int num, int base)
 {
 	static char hexadecimal_base[]= "0123456789ABCDEF";
 	char *ptr;
@@ -35,12 +35,12 @@ char *ft_convert_maj(unsigned int num, int base)
 	return(ptr);
 }
 
-char *ft_convert_min(unsigned int num, int base)
+char *ft_convert_x(unsigned int num, int base)
 {
 	static char hexadecimal_base[]= "0123456789abcdef";
 	char *ptr;
 
-	if (!(ptr = malloc(sizeof(char) * ft_convlen(num) + 1)))
+	if (!(ptr = malloc(sizeof(char) * (ft_convlen(num) + 1))))
 		return (NULL);
 	ptr = &ptr[ft_convlen(num)];
 	*ptr = '\0';
@@ -63,6 +63,8 @@ void		init_flag_t(flag_t *check_val)
 	check_val->d = 0;
 	check_val->c = 0;
 	check_val->u = 0;
+	check_val->x = 0;
+	check_val->X = 0;
 	check_val->less = 0;
 	check_val->zero = 0;
 	check_val->precision = 0;

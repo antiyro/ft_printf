@@ -3,5 +3,5 @@
 
 int main(int argc, char **argv)
 {
-    ft_printf("%7x", 33);
+    ft_printf("%8.5x", 34);
 }
