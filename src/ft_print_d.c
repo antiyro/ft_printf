@@ -34,7 +34,7 @@ void	ft_print_dw(flag_t *check_val)
 	i = 0;
 	if (!check_val->d)
 		check_val->d = va_arg(*check_val->arg, int);
-	if (check_val->d < 0 && check_val->zero)
+	if (check_val->d < 0 && check_val->zero && check_val->d != -2147483648)
 	{
 		ft_putchar('-', check_val);
 		check_val->d *= -1;
@@ -60,7 +60,7 @@ void	ft_print_dp(flag_t *check_val)
 
 	i = 0;
 	check_val->d = va_arg(*check_val->arg, int);
-	if (check_val->d < 0)
+	if (check_val->d < 0 && check_val->d != -2147483648)
 	{
 		ft_putchar('-', check_val);
 		check_val->d *= -1;
@@ -86,7 +86,7 @@ void	ft_print_dwp(flag_t *check_val)
 	ft_filltronc(&tronc, check_val);
 	if (check_val->less)
 	{
-		if (check_val->d < 0)
+		if (check_val->d < 0 && check_val->d != -2147483648)
 		{
 			ft_putchar('-', check_val);
 			check_val->d *= -1;
@@ -111,7 +111,7 @@ void	ft_print_dwp2(flag_t *check_val, int *tronc)
 		ft_putchar(' ', check_val);
 		i++;
 	}
-	if (check_val->d < 0 && !check_val->less)
+	if (check_val->d < 0 && !check_val->less && check_val->d != -2147483648)
 	{
 		ft_putchar('-', check_val);
 		check_val->d *= -1;

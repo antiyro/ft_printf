@@ -90,6 +90,6 @@ void    ft_verify_less(flag_t *check_val)
 {
     if (check_val->less)
         check_val->zero = 0;
-    if (check_val->precision)
+    if (check_val->precision && check_val->arg_t != 's' && check_val->arg_t != '%' && check_val->arg_t != 'c' && check_val->arg_t != 'p')
         check_val->zero = 0;
 }

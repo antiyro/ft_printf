@@ -28,6 +28,8 @@ typedef struct flag_t
 	int 	d;
 	int 	c;
 	char 	perc;
+	char 	*s;
+	char	*p;
 	char 	*u;
 	char 	*x;
 	char 	*X;
@@ -51,6 +53,9 @@ void				ft_filltronc(int *tronc, flag_t *check_val);
 void				ft_filltroncu(int *tronc, flag_t *check_val);
 void				ft_filltroncx(int *tronc, flag_t *check_val);
 void				ft_filltroncX(int *tronc, flag_t *check_val);
+void				ft_filltroncp(int *tronc, flag_t *check_val);
+void				ft_filltroncperc(int *tronc, flag_t *check_val);
+void				ft_filltroncstr(int *tronc, flag_t *check_val);
 void				init_flag_t(flag_t *check_flag);
 char				*ft_convert_X(unsigned int num, int base);
 char				*ft_convert_x(unsigned int num, int base);
@@ -58,6 +63,7 @@ char  				*ft_convert_u(int nb, int base);
 char 				*ft_convert_uneg(int num);
 char  				*ft_convert_p(unsigned long long nb, int base);
 int					ft_convlen(unsigned int num);
+int					ft_convlenp(unsigned long long num);
 char				*ft_reverse(char *str, unsigned long long num);
 int					ft_flag_size(const char *format);
 
@@ -87,10 +93,8 @@ void        		ft_print_c_z(flag_t *check_val);
 void        		ft_print_c_pz(flag_t *check_val);
 void    			ft_print_c_wz(flag_t *check_val);
 void				ft_print_perc(flag_t *check_val);
-void    			ft_print_perc_w(flag_t *check_val);
-void    			ft_print_perc_z(flag_t *check_val);
-void    			ft_print_perc_pz(flag_t *check_val);
-void    			ft_print_perc_wz(flag_t *check_val);
+void    			ft_print_percw(flag_t *check_val);
+void    			ft_print_percd(flag_t *check_val);
 void				ft_print_u(flag_t *check_val);
 void    			ft_print_uw(flag_t *check_val);
 void    			ft_print_up(flag_t *check_val);
@@ -109,6 +113,18 @@ void    			ft_print_Xp(flag_t *check_val);
 void    			ft_print_Xwp(flag_t *check_val);
 void    			ft_print_Xwp2(flag_t *check_val, int *tronc);
 void    			ft_print_Xd(flag_t *check_val);
+void				ft_print_s(flag_t *check_val);
+void    			ft_print_sw(flag_t *check_val);
+void    			ft_print_sp(flag_t *check_val);
+void    			ft_print_swp(flag_t *check_val);
+void    			ft_print_swp2(flag_t *check_val, int *tronc);
+void    			ft_print_sd(flag_t *check_val);
+void				ft_print_p(flag_t *check_val);
+void    			ft_print_pw(flag_t *check_val);
+void    			ft_print_pp(flag_t *check_val);
+void    			ft_print_pwp(flag_t *check_val);
+void    			ft_print_pwp2(flag_t *check_val, int *tronc);
+void    			ft_print_pd(flag_t *check_val);
 
 
 #endif

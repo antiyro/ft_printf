@@ -3,5 +3,6 @@
 
 int main(int argc, char **argv)
 {
-    ft_printf("%8.5x", 34);
+    char a;
+    Print("-->|%p|<--\n", &a);
 }

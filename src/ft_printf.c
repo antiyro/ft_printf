@@ -31,13 +31,13 @@ void			ft_parsingflags(flag_t *check_val)
 void			ft_parsingargs(const char *format, int i, flag_t *check_val)
 {
 	if (format[i] == '%')
-		check_val->arg_t = format[i];
+		check_val->arg_t = '%';
 	else if (format[i] == 'd')
 		check_val->arg_t = format[i];
 	else if (format[i] == 'c')
 		check_val->arg_t = format[i];
 	else if (format[i] == 's')
-		check_val->arg_t = format[i];
+		check_val->arg_t = 's';
 	else if (format[i] == 'u')
 		check_val->arg_t = format[i];
 	else if (format[i] == 'x')

@@ -17,19 +17,20 @@ char *ft_convert_X(unsigned int num, int base)
 {
 	static char hexadecimal_base[]= "0123456789ABCDEF";
 	char *ptr;
+	int i;
 
+	i = ft_convlen(num);
 	if (!(ptr = malloc(sizeof(char) * ft_convlen(num) + 1)))
 		return (NULL);
-	ptr = &ptr[ft_convlen(num)];
-	*ptr = '\0';
+	ptr[i] = '\0';
 	if (num == 0)
 	{
-		*--ptr = '0';
+		ptr[--i] = '0';
 		return (ptr);
 	} 
 	while (num != 0)
 	{
-		*--ptr = hexadecimal_base[num%base];
+		ptr[--i] = hexadecimal_base[num%base];
 		num /= base;
 	}
 	return(ptr);
@@ -39,19 +40,43 @@ char *ft_convert_x(unsigned int num, int base)
 {
 	static char hexadecimal_base[]= "0123456789abcdef";
 	char *ptr;
+	int i;
 
+	i = ft_convlen(num);
 	if (!(ptr = malloc(sizeof(char) * (ft_convlen(num) + 1))))
 		return (NULL);
-	ptr = &ptr[ft_convlen(num)];
-	*ptr = '\0';
+	ptr[i] = '\0';
 	if (num == 0)
 	{
-		*--ptr = '0';
+		ptr[--i] = '0';
 		return (ptr);
 	} 
 	while (num != 0)
 	{
-		*--ptr = hexadecimal_base[num%base];
+		ptr[--i] = hexadecimal_base[num%base];
+		num /= base;
+	}
+	return(ptr);
+}
+
+char *ft_convert_p(unsigned long long num, int base)
+{
+	static char hexadecimal_base[]= "0123456789abcdef";
+	char *ptr;
+	int i;
+	
+	i = ft_convlenp(num);
+	if (!(ptr = (char *)malloc(sizeof(char) * (ft_convlenp(num) + 1))))
+		return (NULL);
+	ptr[i] = '\0';
+	if (num == 0)
+	{
+		ptr[--i] = '0';
+		return (ptr);
+	} 
+	while (num != 0 && ptr[i])
+	{
+		ptr[--i] = hexadecimal_base[num%base];
 		num /= base;
 	}
 	return(ptr);
@@ -65,6 +90,9 @@ void		init_flag_t(flag_t *check_val)
 	check_val->u = 0;
 	check_val->x = 0;
 	check_val->X = 0;
+	check_val->s = 0;
+	check_val->p = 0;
+	check_val->perc = '\0';
 	check_val->less = 0;
 	check_val->zero = 0;
 	check_val->precision = 0;

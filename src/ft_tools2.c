@@ -46,6 +46,21 @@ int		ft_convlen(unsigned int num)
 	return (i);
 }
 
+int		ft_convlenp(unsigned long long num)
+{
+	int i;
+
+	i = 1;
+	if (num == 0)
+		return (1);
+	while (num > 15)
+	{
+		num /= 16;
+		i++;
+	}
+	return (i);
+}
+
 char	*ft_reverse(char *str, unsigned long long num)
 {
 	int i;
@@ -97,28 +112,6 @@ char *ft_convert_uneg(int num)
 	num *= -1;
 	result = 4294967295 - num + 1;
 	ptr = ft_strdup(ft_itoa(result));
-	return(ptr);
-}
-
-char *ft_convert_p(unsigned long long num, int base)
-{
-	static char hexadecimal_base[]= "0123456789abcdef";
-	char *ptr;
-
-	if (!(ptr = malloc(sizeof(char) * ft_convlen(num) + 1)))
-		return (NULL);
-	ptr = &ptr[ft_convlen(num)];
-	*ptr = '\0';
-	if (num == 0)
-	{
-		*--ptr = '0';
-		return (ptr);
-	} 
-	while (num != 0)
-	{
-		*--ptr = hexadecimal_base[num%base];
-		num /= base;
-	}
 	return(ptr);
 }
 
@@ -199,6 +192,32 @@ void	ft_filltroncperc(int *tronc, flag_t *check_val)
 		*tronc = check_val->precision;
 	else
 		*tronc = 1;
-	if (check_val->dot && !check_val->precision && !check_val->d && check_val->dot != 2)
+}
+
+void	ft_filltroncstr(int *tronc, flag_t *check_val)
+{
+	if ((int)ft_strlen(check_val->s) <= check_val->precision)
+	{
+		if (check_val->s < 0)
+			*tronc = check_val->precision + 1;
+		else
+			*tronc = check_val->precision;
+	}
+	else
+		*tronc = (int)ft_strlen(check_val->s);
+}
+
+void	ft_filltroncp(int *tronc, flag_t *check_val)
+{
+	if ((int)ft_strlen(check_val->p) <= check_val->precision)
+	{
+		if (check_val->p < 0)
+			*tronc = check_val->precision + 1;
+		else
+			*tronc = check_val->precision;
+	}
+	else
+		*tronc = (int)ft_strlen(check_val->p);
+	if (check_val->dot && !check_val->precision && check_val->p[0] == '0' && check_val->dot != 2)
 		*tronc = 0;
 }
