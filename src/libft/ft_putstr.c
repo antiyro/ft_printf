@@ -16,6 +16,8 @@ void	ft_putstr(char *s, flag_t *check_val)
 {
 	int i;
 
+	if (!s)
+		ft_putstr("(null)", check_val);
 	i = 0;
 	while (s[i])
 	{

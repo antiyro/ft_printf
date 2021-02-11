@@ -4,5 +4,5 @@
 int main(int argc, char **argv)
 {
     char a;
-    Print("-->|%p|<--\n", &a);
+    Print("%*.*s", 2, 0, "abcdefhijklmnop");
 }

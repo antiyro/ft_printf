@@ -24,7 +24,16 @@ void	ft_print_s(flag_t *check_val)
 	else if (check_val->precision && check_val->width)
 		ft_print_swp(check_val);
 	else
-		ft_putstr(va_arg(*check_val->arg, char*), check_val);
+	{
+		check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
+		if (!check_val->s)
+		{
+			free(check_val->s);
+			check_val->s = NULL;
+			check_val->s = ft_strdup("(null)");
+		}
+		ft_putstr(check_val->s, check_val);
+	}
 }
 
 void	ft_print_sw(flag_t *check_val)
@@ -34,6 +43,12 @@ void	ft_print_sw(flag_t *check_val)
 	i = 0;
 	if (!check_val->s)
 		check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
+	if (!check_val->s)
+	{
+		free(check_val->s);
+		check_val->s = NULL;
+		check_val->s = ft_strdup("(null)");
+	}
 	if (check_val->less)
 		ft_putstr(check_val->s, check_val);
 	while (i < check_val->width - (int)ft_strlen(check_val->s))
@@ -51,6 +66,12 @@ void	ft_print_sp(flag_t *check_val)
 
 	i = 0;
 	check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
+	if (!check_val->s)
+	{
+		free(check_val->s);
+		check_val->s = NULL;
+		check_val->s = ft_strdup("(null)");
+	}
 	while (i < check_val->precision && check_val->s[i])
 	{
 		ft_putchar(check_val->s[i], check_val);
@@ -65,10 +86,16 @@ void	ft_print_swp(flag_t *check_val)
 
 	i = 0;
 	check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
+	if (!check_val->s)
+	{
+		free(check_val->s);
+		check_val->s = NULL;
+		check_val->s = ft_strdup("(null)");
+	}
 	ft_filltroncstr(&tronc, check_val);
 	if (check_val->less)
 	{
-		while (i < check_val->precision && check_val->s[i])
+		while ((i < check_val->precision) && check_val->s[i])
         {
             ft_putchar(check_val->s[i], check_val);
             i++;
@@ -105,5 +132,13 @@ void	ft_print_sd(flag_t *check_val)
 
 	i = 0;
 	check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
+	if (!check_val->s)
+	{
+		free(check_val->s);
+		check_val->s = NULL;
+		check_val->s = ft_strdup("(null)");
+	}
+	if (check_val->width > 0)
+		ft_print_sw(check_val);
 	return ;
 }

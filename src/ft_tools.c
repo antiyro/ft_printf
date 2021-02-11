@@ -64,9 +64,9 @@ char *ft_convert_p(unsigned long long num, int base)
 	static char hexadecimal_base[]= "0123456789abcdef";
 	char *ptr;
 	int i;
-	
+
 	i = ft_convlenp(num);
-	if (!(ptr = (char *)malloc(sizeof(char) * (ft_convlenp(num) + 1))))
+	if (!(ptr = malloc(sizeof(char) * (ft_convlen(num) + 1))))
 		return (NULL);
 	ptr[i] = '\0';
 	if (num == 0)
@@ -74,7 +74,7 @@ char *ft_convert_p(unsigned long long num, int base)
 		ptr[--i] = '0';
 		return (ptr);
 	} 
-	while (num != 0 && ptr[i])
+	while (num != 0)
 	{
 		ptr[--i] = hexadecimal_base[num%base];
 		num /= base;
