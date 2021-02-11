@@ -197,14 +197,9 @@ void	ft_filltroncperc(int *tronc, flag_t *check_val)
 void	ft_filltroncstr(int *tronc, flag_t *check_val)
 {
 	if ((int)ft_strlen(check_val->s) <= check_val->precision)
-	{
-		if (check_val->s < 0)
-			*tronc = check_val->precision + 1;
-		else
-			*tronc = check_val->precision;
-	}
-	else
 		*tronc = (int)ft_strlen(check_val->s);
+	else
+		*tronc = check_val->precision;
 }
 
 void	ft_filltroncp(int *tronc, flag_t *check_val)
