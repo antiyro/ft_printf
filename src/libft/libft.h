@@ -86,5 +86,6 @@ char				*ft_char_tostr(char c);
 void				ft_clean_stdin(void);
 int					ft_check_file_exist(char *name);
 char				*ft_strcat(char *dst, const char *src);
+char				ft_tostr(int num);
 
 #endif

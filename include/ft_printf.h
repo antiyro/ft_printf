@@ -31,6 +31,7 @@ typedef struct flag_t
 	char 	perc;
 	char 	*s;
 	char	*p;
+	int 	pnull;
 	char 	*u;
 	char 	*x;
 	char 	*X;

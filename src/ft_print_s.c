@@ -65,7 +65,8 @@ void	ft_print_sp(flag_t *check_val)
 	int i;
 
 	i = 0;
-	check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
+	if (!check_val->s)
+		check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
 	if (!check_val->s)
 	{
 		free(check_val->s);
@@ -85,7 +86,8 @@ void	ft_print_swp(flag_t *check_val)
 	int tronc;
 
 	i = 0;
-	check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
+	if (!check_val->s)
+		check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
 	if (!check_val->s)
 	{
 		free(check_val->s);
@@ -139,6 +141,6 @@ void	ft_print_sd(flag_t *check_val)
 		check_val->s = ft_strdup("(null)");
 	}
 	if (check_val->width > 0)
-		ft_print_sw(check_val);
+		ft_print_swp(check_val);
 	return ;
 }

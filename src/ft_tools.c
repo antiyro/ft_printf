@@ -66,7 +66,7 @@ char *ft_convert_p(unsigned long long num, int base)
 	int i;
 
 	i = ft_convlenp(num);
-	if (!(ptr = malloc(sizeof(char) * (ft_convlen(num) + 1))))
+	if (!(ptr = malloc(sizeof(char) * (ft_convlenp(num) + 1))))
 		return (NULL);
 	ptr[i] = '\0';
 	if (num == 0)
