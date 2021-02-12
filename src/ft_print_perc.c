@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_perc.c                                       :+:      :+:    :+:   */
+/*   ft_print_perc.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nbouhada <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,7 +15,6 @@
 
 void	ft_print_perc(flag_t *check_val)
 {
-
 	if (check_val->width)
 		ft_print_percw(check_val);
 	else

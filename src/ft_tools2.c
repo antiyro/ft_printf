@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/printf.h"
 
-int		ft_check_flag(char c)
+int				ft_check_flag(char c)
 {
 	if (c != 'c' && c != 'd' && c != 's' &&
 			c != 'u' && c != 'x' && c != 'X' &&
@@ -22,7 +22,7 @@ int		ft_check_flag(char c)
 	return (0);
 }
 
-int		ft_check_args(char c)
+int				ft_check_args(char c)
 {
 	if (c == 'c' || c == 'd' || c == 's' ||
 			c == 'u' || c == 'x' || c == 'X' ||
@@ -31,9 +31,9 @@ int		ft_check_args(char c)
 	return (0);
 }
 
-int		ft_convlen(unsigned int num)
+int				ft_convlen(unsigned int num)
 {
-	int i;
+	int 		i;
 
 	i = 1;
 	if (num == 0)
@@ -46,9 +46,9 @@ int		ft_convlen(unsigned int num)
 	return (i);
 }
 
-int		ft_convlenp(unsigned long long num)
+int				ft_convlenp(unsigned long long num)
 {
-	int i;
+	int 		i;
 
 	i = 1;
 	if (num == 0)
@@ -61,11 +61,11 @@ int		ft_convlenp(unsigned long long num)
 	return (i);
 }
 
-char	*ft_reverse(char *str, unsigned long long num)
+char			*ft_reverse(char *str, unsigned long long num)
 {
-	int i;
-	int j;
-	char tmp;
+	int 		i;
+	int 		j;
+	char 		tmp;
 
 	i = 0;
 	j = ft_convlen(num) - 1;
@@ -81,10 +81,11 @@ char	*ft_reverse(char *str, unsigned long long num)
 	return (str);
 }
 
-char *ft_convert_u(int num, int base)
+char 			*ft_convert_u(int num, int base)
 {
 	static char hexadecimal_base[]= "0123456789";
-	char *ptr;
+	char 		*ptr;
+
 	if (num < 0)
 		return(ft_convert_uneg(num));
 	if (!(ptr = malloc(sizeof(char) * ft_convlen(num) + 1)))
@@ -104,10 +105,10 @@ char *ft_convert_u(int num, int base)
 	return(ptr);
 }
 
-char *ft_convert_uneg(int num)
+char			*ft_convert_uneg(int num)
 {
-	char *ptr;
-	long long result;
+	char 		*ptr;
+	long long 	result;
 
 	num *= -1;
 	result = 4294967295 - num + 1;

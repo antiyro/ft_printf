@@ -13,7 +13,7 @@
 #include "../include/ft_printf.h"
 #include "libft/libft.h"
 
-char *ft_convert_X(unsigned int num, int base)
+char *ft_convert_xmaj(unsigned int num, int base)
 {
 	static char hexadecimal_base[]= "0123456789ABCDEF";
 	char *ptr;
