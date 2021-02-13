@@ -65,6 +65,7 @@ char			*ft_reverse(char *str, unsigned long long num);
 int				ft_flag_size(const char *format);
 int				ft_printf(const char *format, ...);
 void			ft_parsing(const char *format, flag_t *check_val);
+void			ft_parsing2(const char *format, flag_t *check_val, int i);
 void			ft_parsingargs(const char *format, int i, flag_t *check_val);
 void			ft_parsingflags(flag_t *check_val);
 void			ft_verify_width(flag_t *check_val);

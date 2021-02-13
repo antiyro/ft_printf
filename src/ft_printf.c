@@ -68,13 +68,7 @@ void		ft_parsing(const char *format, flag_t *check_val)
 			while (ft_check_flag(format[i]))
 				check_val->flag[j++] = format[i++];
 			check_val->flag[j] = '\0';
-			init_flag_t(check_val);
-			ft_parsingargs(format, i, check_val);
-			if (check_val->flag)
-				ft_parsingflags(check_val);
-			free(check_val->flag);
-			check_val->flag = NULL;
-			ft_printargs(format, i, check_val);
+			ft_parsing2(format, check_val, i);
 			i++;
 		}
 		if (format[i] && format[i] != '%')
@@ -83,6 +77,17 @@ void		ft_parsing(const char *format, flag_t *check_val)
 			i++;
 		}
 	}
+}
+
+void		ft_parsing2(const char *format, flag_t *check_val, int i)
+{
+	init_flag_t(check_val);
+	ft_parsingargs(format, i, check_val);
+	if (check_val->flag)
+		ft_parsingflags(check_val);
+	free(check_val->flag);
+	check_val->flag = NULL;
+	ft_printargs(format, i, check_val);
 }
 
 int			ft_printf(const char *format, ...)
