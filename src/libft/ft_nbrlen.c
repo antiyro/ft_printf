@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-int		ft_nbrlen(int nb)
+int				ft_nbrlen(int nb)
 {
-	int i;
-	long long n;
+	int			i;
+	long long	n;
 
 	n = nb;
 	i = 0;

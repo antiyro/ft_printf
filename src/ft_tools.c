@@ -89,7 +89,7 @@ void		init_flag_t(flag_t *check_val)
 	check_val->c = 0;
 	check_val->u = 0;
 	check_val->x = 0;
-	check_val->X = 0;
+	check_val->xmaj = 0;
 	check_val->s = 0;
 	check_val->p = 0;
 	check_val->perc = '\0';

@@ -16,7 +16,7 @@ GCC		= gcc -Wall -Wextra -Werror
 
 SRC		= ft_putstr.c ft_strlen.c ft_putchar.c ft_putnbr.c ft_atoi.c ft_isdigit.c \
 		ft_strcat.c ft_strdup.c ft_nbrlen.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c \
-		ft_itoa.c ft_tostr.c\
+		ft_itoa.c \
 
 OBJ 	= $(SRC:.c=.o)
 

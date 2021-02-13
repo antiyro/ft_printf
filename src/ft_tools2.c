@@ -172,18 +172,18 @@ void	ft_filltroncx(int *tronc, flag_t *check_val)
 		*tronc = 0;
 }
 
-void	ft_filltroncX(int *tronc, flag_t *check_val)
+void	ft_filltroncxmaj(int *tronc, flag_t *check_val)
 {
-	if ((int)ft_strlen(check_val->X) <= check_val->precision)
+	if ((int)ft_strlen(check_val->xmaj) <= check_val->precision)
 	{
-		if (check_val->X < 0)
+		if (check_val->xmaj < 0)
 			*tronc = check_val->precision + 1;
 		else
 			*tronc = check_val->precision;
 	}
 	else
-		*tronc = (int)ft_strlen(check_val->X);
-	if (check_val->dot && !check_val->precision && check_val->X[0] == '0' && check_val->dot != 2)
+		*tronc = (int)ft_strlen(check_val->xmaj);
+	if (check_val->dot && !check_val->precision && check_val->xmaj[0] == '0' && check_val->dot != 2)
 		*tronc = 0;
 }
 
