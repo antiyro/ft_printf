@@ -58,43 +58,6 @@ void	ft_verify_width3(flag_t *check_val, int *first, int *i)
 	*first = 0;
 }
 
-void	ft_verify_precision(flag_t *check_val)
-{
-	int i;
-
-	i = 0;
-	while (check_val->flag[i] != '.')
-		i++;
-	while (check_val->flag[i])
-	{
-		if (check_val->flag[i] == '-')
-		{
-			check_val->precision = 0;
-			check_val->dot = 2;
-			break ;
-		}
-		if (check_val->flag[i] == '*')
-		{
-			check_val->precision = va_arg(*check_val->arg, int);
-			if (check_val->precision < 0)
-			{
-				check_val->precision = 0;
-				check_val->dot = 2;
-				break ;
-			}
-			break ;
-		}
-		if (ft_isdigit(check_val->flag[i]))
-			check_val->precision = check_val->precision * 10 +
-				(check_val->flag[i] - 48);
-		i++;
-	}
-	if (check_val->flag[i] == '.')
-		check_val->precision = 0;
-	if (!check_val->precision && check_val->dot != 2)
-		check_val->dot = 1;
-}
-
 void	ft_verify_less(flag_t *check_val)
 {
 	if (check_val->less)

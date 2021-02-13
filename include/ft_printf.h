@@ -71,6 +71,9 @@ void			ft_verify_width(flag_t *check_val);
 void			ft_verify_width2(flag_t *check_val);
 void			ft_verify_width3(flag_t *check_val, int *first, int *i);
 void			ft_verify_precision(flag_t *check_val);
+void			ft_verify_precision2(flag_t *check_val, int *i);
+void			ft_verify_precision3(flag_t *check_val, int *i);
+void			ft_verify_precision4(flag_t *check_val);
 void			ft_verify_less(flag_t *check_val);
 void			ft_printcontrol(const char *format,
 	va_list arg, flag_t *check_val);
