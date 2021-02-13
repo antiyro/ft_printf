@@ -53,7 +53,7 @@ void	ft_print_sw(flag_t *check_val)
 		ft_putstr(check_val->s, check_val);
 	while (i < check_val->width - (int)ft_strlen(check_val->s))
 	{
-			ft_putchar(' ', check_val);
+		ft_putchar(' ', check_val);
 		i++;
 	}
 	if (!check_val->less)
@@ -98,11 +98,11 @@ void	ft_print_swp(flag_t *check_val)
 	if (check_val->less)
 	{
 		while ((i < check_val->precision) && check_val->s[i])
-        {
-            ft_putchar(check_val->s[i], check_val);
-            i++;
-        }
-    }
+		{
+			ft_putchar(check_val->s[i], check_val);
+			i++;
+		}
+	}
 	ft_print_swp2(check_val, &tronc);
 }
 
@@ -120,17 +120,16 @@ void	ft_print_swp2(flag_t *check_val, int *tronc)
 	if (!check_val->less)
 	{
 		while (i < check_val->precision && check_val->s[i])
-        {
-            ft_putchar(check_val->s[i], check_val);
-            i++;
-        }
+		{
+			ft_putchar(check_val->s[i], check_val);
+			i++;
+		}
 	}
 }
 
 void	ft_print_sd(flag_t *check_val)
 {
 	int i;
-	//int tronc;
 
 	i = 0;
 	check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
