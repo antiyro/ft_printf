@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/ft_printf.h"
 
-void	ft_verify_width(flag_t *check_val)
+void	ft_verify_width(t_struc *check_val)
 {
 	int i;
 	int first;
@@ -39,7 +39,7 @@ void	ft_verify_width(flag_t *check_val)
 		check_val->less = 0;
 }
 
-void	ft_verify_width2(flag_t *check_val)
+void	ft_verify_width2(t_struc *check_val)
 {
 	check_val->width = va_arg(*check_val->arg, int);
 	if (check_val->width < 0)
@@ -49,7 +49,7 @@ void	ft_verify_width2(flag_t *check_val)
 	}
 }
 
-void	ft_verify_width3(flag_t *check_val, int *first, int *i)
+void	ft_verify_width3(t_struc *check_val, int *first, int *i)
 {
 	if (*first && check_val->flag[*i] == '0' && !check_val->less)
 		check_val->zero = 1;
@@ -58,7 +58,7 @@ void	ft_verify_width3(flag_t *check_val, int *first, int *i)
 	*first = 0;
 }
 
-void	ft_verify_less(flag_t *check_val)
+void	ft_verify_less(t_struc *check_val)
 {
 	if (check_val->less)
 		check_val->zero = 0;

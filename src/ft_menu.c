@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/ft_printf.h"
 
-void	ft_print_p(flag_t *check_val)
+void	ft_print_p(t_struc *check_val)
 {
 	if (check_val->dot && check_val->dot != 2)
 		ft_print_pd(check_val);
@@ -31,7 +31,7 @@ void	ft_print_p(flag_t *check_val)
 	}
 }
 
-void	ft_print_d(flag_t *check_val)
+void	ft_print_d(t_struc *check_val)
 {
 	if (check_val->dot && check_val->dot != 2)
 		ft_print_dd(check_val);
@@ -45,7 +45,7 @@ void	ft_print_d(flag_t *check_val)
 		ft_putnbr(va_arg(*check_val->arg, int), check_val);
 }
 
-void	ft_print_c(flag_t *check_val)
+void	ft_print_c(t_struc *check_val)
 {
 	if (check_val->zero && check_val->width)
 		ft_print_c_z(check_val);
@@ -55,7 +55,7 @@ void	ft_print_c(flag_t *check_val)
 		ft_putchar(va_arg(*check_val->arg, int), check_val);
 }
 
-void	ft_print_s(flag_t *check_val)
+void	ft_print_s(t_struc *check_val)
 {
 	if (check_val->dot && check_val->dot != 2)
 		ft_print_sd(check_val);

@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/ft_printf.h"
 
-void		ft_parsingflags(flag_t *check_val)
+void		ft_parsingflags(t_struc *check_val)
 {
 	int		i;
 
@@ -28,7 +28,7 @@ void		ft_parsingflags(flag_t *check_val)
 	ft_verify_less(check_val);
 }
 
-void		ft_parsingargs(const char *format, int i, flag_t *check_val)
+void		ft_parsingargs(const char *format, int i, t_struc *check_val)
 {
 	if (format[i] == '%')
 		check_val->arg_t = '%';
@@ -50,7 +50,7 @@ void		ft_parsingargs(const char *format, int i, flag_t *check_val)
 		check_val->arg_t = format[i];
 }
 
-void		ft_parsing(const char *format, flag_t *check_val)
+void		ft_parsing(const char *format, t_struc *check_val)
 {
 	int		i;
 	int		j;
@@ -79,9 +79,9 @@ void		ft_parsing(const char *format, flag_t *check_val)
 	}
 }
 
-void		ft_parsing2(const char *format, flag_t *check_val, int i)
+void		ft_parsing2(const char *format, t_struc *check_val, int i)
 {
-	init_flag_t(check_val);
+	init_t_struc(check_val);
 	ft_parsingargs(format, i, check_val);
 	if (check_val->flag)
 		ft_parsingflags(check_val);
@@ -93,7 +93,7 @@ void		ft_parsing2(const char *format, flag_t *check_val, int i)
 int			ft_printf(const char *format, ...)
 {
 	va_list	arg;
-	flag_t	check_val;
+	t_struc	check_val;
 
 	check_val.ret = 0;
 	va_start(arg, format);

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putnbr(int n, flag_t *check_val)
+void	ft_putnbr(int n, t_struc *check_val)
 {
 	if (n < 0)
 	{

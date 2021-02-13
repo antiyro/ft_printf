@@ -34,10 +34,10 @@ size_t				ft_strlcat(char *dst, const char *src, size_t size);
 int					ft_atoi(char *nbr);
 char				*ft_strdup(const char *s);
 char				*ft_strjoin(char const *s1, char const *s2,
-	flag_t *check_val);
+	t_struc *check_val);
 char				*ft_itoa(long long n);
-void				ft_putchar(char c, flag_t *check_val);
-void				ft_putstr(char *s, flag_t *check_val);
-void				ft_putnbr(int n, flag_t *check_val);
+void				ft_putchar(char c, t_struc *check_val);
+void				ft_putstr(char *s, t_struc *check_val);
+void				ft_putnbr(int n, t_struc *check_val);
 
 #endif

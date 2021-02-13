@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putchar(char c, flag_t *check_val)
+void	ft_putchar(char c, t_struc *check_val)
 {
 	write(1, &c, 1);
 	check_val->ret += 1;

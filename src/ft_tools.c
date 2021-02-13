@@ -13,7 +13,7 @@
 #include "../include/ft_printf.h"
 #include "libft/libft.h"
 
-void		init_flag_t(flag_t *check_val)
+void		init_t_struc(t_struc *check_val)
 {
 	check_val->arg_t = '\0';
 	check_val->d = 0;
@@ -55,7 +55,7 @@ int			ft_flag_size(const char *format)
 	return (count);
 }
 
-void		ft_filltronc(int *tronc, flag_t *check_val)
+void		ft_filltronc(int *tronc, t_struc *check_val)
 {
 	if ((int)ft_nbrlen(check_val->d) <= check_val->precision)
 	{
@@ -71,7 +71,7 @@ void		ft_filltronc(int *tronc, flag_t *check_val)
 		*tronc = 0;
 }
 
-void		ft_filltroncu(int *tronc, flag_t *check_val)
+void		ft_filltroncu(int *tronc, t_struc *check_val)
 {
 	if ((int)ft_strlen(check_val->u) <= check_val->precision)
 	{

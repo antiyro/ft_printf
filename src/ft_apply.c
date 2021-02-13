@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/printf.h"
 
-void	ft_printargs(const char *format, int i, flag_t *check_val)
+void	ft_printargs(const char *format, int i, t_struc *check_val)
 {
 	if (format[i] == '%')
 		ft_print_perc(check_val);

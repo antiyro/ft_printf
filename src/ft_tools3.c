@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/printf.h"
 
-void	ft_filltroncx(int *tronc, flag_t *check_val)
+void	ft_filltroncx(int *tronc, t_struc *check_val)
 {
 	if ((int)ft_strlen(check_val->x) <= check_val->precision)
 	{
@@ -29,7 +29,7 @@ void	ft_filltroncx(int *tronc, flag_t *check_val)
 		*tronc = 0;
 }
 
-void	ft_filltroncxmaj(int *tronc, flag_t *check_val)
+void	ft_filltroncxmaj(int *tronc, t_struc *check_val)
 {
 	if ((int)ft_strlen(check_val->xmaj) <= check_val->precision)
 	{
@@ -45,7 +45,7 @@ void	ft_filltroncxmaj(int *tronc, flag_t *check_val)
 		*tronc = 0;
 }
 
-void	ft_filltroncperc(int *tronc, flag_t *check_val)
+void	ft_filltroncperc(int *tronc, t_struc *check_val)
 {
 	if (1 <= check_val->precision)
 		*tronc = check_val->precision;
@@ -53,7 +53,7 @@ void	ft_filltroncperc(int *tronc, flag_t *check_val)
 		*tronc = 1;
 }
 
-void	ft_filltroncstr(int *tronc, flag_t *check_val)
+void	ft_filltroncstr(int *tronc, t_struc *check_val)
 {
 	if ((int)ft_strlen(check_val->s) <= check_val->precision)
 		*tronc = (int)ft_strlen(check_val->s);
@@ -61,7 +61,7 @@ void	ft_filltroncstr(int *tronc, flag_t *check_val)
 		*tronc = check_val->precision;
 }
 
-void	ft_filltroncp(int *tronc, flag_t *check_val)
+void	ft_filltroncp(int *tronc, t_struc *check_val)
 {
 	if ((int)ft_strlen(check_val->p) <= check_val->precision)
 	{

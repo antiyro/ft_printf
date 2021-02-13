@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/printf.h"
 
-void	ft_print_perc(flag_t *check_val)
+void	ft_print_perc(t_struc *check_val)
 {
 	if (check_val->width)
 		ft_print_percw(check_val);
@@ -21,7 +21,7 @@ void	ft_print_perc(flag_t *check_val)
 		ft_putchar('%', check_val);
 }
 
-void	ft_print_percw(flag_t *check_val)
+void	ft_print_percw(t_struc *check_val)
 {
 	int i;
 

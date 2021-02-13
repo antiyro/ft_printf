@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/ft_printf.h"
 
-void	ft_verify_precision(flag_t *check_val)
+void	ft_verify_precision(t_struc *check_val)
 {
 	int i;
 
@@ -42,7 +42,7 @@ void	ft_verify_precision(flag_t *check_val)
 	ft_verify_precision3(check_val, &i);
 }
 
-void	ft_verify_precision2(flag_t *check_val, int *i)
+void	ft_verify_precision2(t_struc *check_val, int *i)
 {
 	if (ft_isdigit(check_val->flag[*i]))
 		check_val->precision = check_val->precision * 10 +
@@ -50,7 +50,7 @@ void	ft_verify_precision2(flag_t *check_val, int *i)
 	*i += 1;
 }
 
-void	ft_verify_precision3(flag_t *check_val, int *i)
+void	ft_verify_precision3(t_struc *check_val, int *i)
 {
 	if (check_val->flag[*i] == '.')
 		check_val->precision = 0;
@@ -58,7 +58,7 @@ void	ft_verify_precision3(flag_t *check_val, int *i)
 		check_val->dot = 1;
 }
 
-void	ft_verify_precision4(flag_t *check_val)
+void	ft_verify_precision4(t_struc *check_val)
 {
 	check_val->precision = 0;
 	check_val->dot = 2;

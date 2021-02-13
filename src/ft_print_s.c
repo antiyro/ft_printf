@@ -13,7 +13,7 @@
 #include "libft/libft.h"
 #include "../include/ft_printf.h"
 
-void	ft_print_sw(flag_t *check_val)
+void	ft_print_sw(t_struc *check_val)
 {
 	int i;
 
@@ -37,7 +37,7 @@ void	ft_print_sw(flag_t *check_val)
 		ft_putstr(check_val->s, check_val);
 }
 
-void	ft_print_sp(flag_t *check_val)
+void	ft_print_sp(t_struc *check_val)
 {
 	int i;
 
@@ -57,7 +57,7 @@ void	ft_print_sp(flag_t *check_val)
 	}
 }
 
-void	ft_print_swp(flag_t *check_val)
+void	ft_print_swp(t_struc *check_val)
 {
 	int i;
 	int tronc;
@@ -83,7 +83,7 @@ void	ft_print_swp(flag_t *check_val)
 	ft_print_swp2(check_val, &tronc);
 }
 
-void	ft_print_swp2(flag_t *check_val, int *tronc)
+void	ft_print_swp2(t_struc *check_val, int *tronc)
 {
 	int i;
 
@@ -104,7 +104,7 @@ void	ft_print_swp2(flag_t *check_val, int *tronc)
 	}
 }
 
-void	ft_print_sd(flag_t *check_val)
+void	ft_print_sd(t_struc *check_val)
 {
 	int i;
 
