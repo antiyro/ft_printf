@@ -28,26 +28,34 @@ void	ft_verify_width(flag_t *check_val)
 			check_val->less = 1;
 		if (check_val->flag[i] == '*')
 		{
-			check_val->width = va_arg(*check_val->arg, int);
-			if (check_val->width < 0)
-			{
-				check_val->width *= -1;
-				check_val->less = 1;
-			}
+			ft_verify_width2(check_val);
 			break ;
 		}
 		if (ft_isdigit(check_val->flag[i]))
-		{
-			if (first && check_val->flag[i] == '0' && !check_val->less)
-				check_val->zero = 1;
-			check_val->width = check_val->width * 10 +
-				(check_val->flag[i] - 48);
-			first = 0;
-		}
+			ft_verify_width3(check_val, &first, &i);
 		i++;
 	}
 	if (!check_val->width && check_val->less)
 		check_val->less = 0;
+}
+
+void	ft_verify_width2(flag_t *check_val)
+{
+	check_val->width = va_arg(*check_val->arg, int);
+	if (check_val->width < 0)
+	{
+		check_val->width *= -1;
+		check_val->less = 1;
+	}
+}
+
+void	ft_verify_width3(flag_t *check_val, int *first, int *i)
+{
+	if (*first && check_val->flag[*i] == '0' && !check_val->less)
+		check_val->zero = 1;
+	check_val->width = check_val->width * 10 +
+		(check_val->flag[*i] - 48);
+	*first = 0;
 }
 
 void	ft_verify_precision(flag_t *check_val)

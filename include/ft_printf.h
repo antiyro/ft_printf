@@ -20,7 +20,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-typedef struct	flag_t
+typedef	struct	flag_t
 {
 	va_list	*arg;
 	char	arg_t;
@@ -68,6 +68,8 @@ void			ft_parsing(const char *format, flag_t *check_val);
 void			ft_parsingargs(const char *format, int i, flag_t *check_val);
 void			ft_parsingflags(flag_t *check_val);
 void			ft_verify_width(flag_t *check_val);
+void			ft_verify_width2(flag_t *check_val);
+void			ft_verify_width3(flag_t *check_val, int *first, int *i);
 void			ft_verify_precision(flag_t *check_val);
 void			ft_verify_less(flag_t *check_val);
 void			ft_printcontrol(const char *format,
