@@ -12,10 +12,12 @@
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char const *s1, char const *s2, flag_t *check_val)
 {
 	char *new;
 
+	if (s2[0] == '0' && check_val->dot)
+		return ("0x");
 	if (s1 && s2)
 	{
 		if (!(new = (char *)malloc(sizeof(char) *
