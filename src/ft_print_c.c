@@ -13,16 +13,6 @@
 #include "libft/libft.h"
 #include "../include/printf.h"
 
-void	ft_print_c(flag_t *check_val)
-{
-	if (check_val->zero && check_val->width)
-		ft_print_c_z(check_val);
-	else if (check_val->width && !check_val->zero)
-		ft_print_c_w(check_val);
-	else
-		ft_putchar(va_arg(*check_val->arg, int), check_val);
-}
-
 void	ft_print_c_w(flag_t *check_val)
 {
 	int i;

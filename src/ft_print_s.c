@@ -13,29 +13,6 @@
 #include "libft/libft.h"
 #include "../include/ft_printf.h"
 
-void	ft_print_s(flag_t *check_val)
-{
-	if (check_val->dot && check_val->dot != 2)
-		ft_print_sd(check_val);
-	else if (check_val->width && !check_val->precision)
-		ft_print_sw(check_val);
-	else if (check_val->precision && !check_val->width)
-		ft_print_sp(check_val);
-	else if (check_val->precision && check_val->width)
-		ft_print_swp(check_val);
-	else
-	{
-		check_val->s = ft_strdup(va_arg(*check_val->arg, char*));
-		if (!check_val->s)
-		{
-			free(check_val->s);
-			check_val->s = NULL;
-			check_val->s = ft_strdup("(null)");
-		}
-		ft_putstr(check_val->s, check_val);
-	}
-}
-
 void	ft_print_sw(flag_t *check_val)
 {
 	int i;

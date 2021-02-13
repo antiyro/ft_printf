@@ -33,7 +33,7 @@ int				ft_check_args(char c)
 
 int				ft_convlen(unsigned int num)
 {
-	int 		i;
+	int			i;
 
 	i = 1;
 	if (num == 0)
@@ -48,7 +48,7 @@ int				ft_convlen(unsigned int num)
 
 int				ft_convlenp(unsigned long long num)
 {
-	int 		i;
+	int			i;
 
 	i = 1;
 	if (num == 0)
@@ -60,4 +60,3 @@ int				ft_convlenp(unsigned long long num)
 	}
 	return (i);
 }
-

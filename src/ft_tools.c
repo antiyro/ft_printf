@@ -30,13 +30,12 @@ void		init_flag_t(flag_t *check_val)
 	check_val->dot = 0;
 	check_val->star = 0;
 	check_val->width = 0;
-	//completer avec les autres flags
 }
 
-int					ft_flag_size(const char *format)
+int			ft_flag_size(const char *format)
 {
-	int i;
-	int count;
+	int		i;
+	int		count;
 
 	i = 0;
 	count = 0;
@@ -54,4 +53,36 @@ int					ft_flag_size(const char *format)
 		i++;
 	}
 	return (count);
+}
+
+void		ft_filltronc(int *tronc, flag_t *check_val)
+{
+	if ((int)ft_nbrlen(check_val->d) <= check_val->precision)
+	{
+		if (check_val->d < 0)
+			*tronc = check_val->precision + 1;
+		else
+			*tronc = check_val->precision;
+	}
+	else
+		*tronc = (int)ft_nbrlen(check_val->d);
+	if (check_val->dot && !check_val->precision &&
+		!check_val->d && check_val->dot != 2)
+		*tronc = 0;
+}
+
+void		ft_filltroncu(int *tronc, flag_t *check_val)
+{
+	if ((int)ft_strlen(check_val->u) <= check_val->precision)
+	{
+		if (check_val->u < 0)
+			*tronc = check_val->precision + 1;
+		else
+			*tronc = check_val->precision;
+	}
+	else
+		*tronc = (int)ft_strlen(check_val->u);
+	if (check_val->dot && !check_val->precision &&
+		check_val->u[0] == '0' && check_val->dot != 2)
+		*tronc = 0;
 }

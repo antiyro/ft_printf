@@ -61,7 +61,8 @@ void		ft_parsing(const char *format, flag_t *check_val)
 		if (format[i] == '%')
 		{
 			j = 0;
-			if (!(check_val->flag = (char *)malloc(sizeof(char) * (ft_flag_size(format) + 1))))
+			if (!(check_val->flag = (char *)malloc(sizeof(char)
+				* (ft_flag_size(format) + 1))))
 				return ;
 			i += 1;
 			while (ft_check_flag(format[i]))
@@ -76,7 +77,7 @@ void		ft_parsing(const char *format, flag_t *check_val)
 			ft_printargs(format, i, check_val);
 			i++;
 		}
-		if (format[i] && format[i]!= '%')
+		if (format[i] && format[i] != '%')
 		{
 			ft_putchar(format[i], check_val);
 			i++;
