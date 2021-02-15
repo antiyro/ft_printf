@@ -60,3 +60,18 @@ int				ft_convlenp(unsigned long long num)
 	}
 	return (i);
 }
+
+int				ft_convlenu(unsigned int num)
+{
+	int			i;
+
+	i = 1;
+	if (num == 0)
+		return (1);
+	while (num > 9)
+	{
+		num /= 10;
+		i++;
+	}
+	return (i);
+}

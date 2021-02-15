@@ -25,6 +25,7 @@ typedef	struct	s_struc
 	va_list	*arg;
 	char	arg_t;
 	int		ret;
+	char	*container;
 	int		d;
 	int		c;
 	char	perc;
@@ -46,6 +47,7 @@ typedef	struct	s_struc
 int				ft_check_flag(char c);
 int				ft_check_args(char c);
 void			ft_valneg(t_struc *check_val);
+void			ft_free_container(t_struc *check_val);
 void			ft_filltronc(int *tronc, t_struc *check_val);
 void			ft_filltroncu(int *tronc, t_struc *check_val);
 void			ft_filltroncx(int *tronc, t_struc *check_val);
@@ -54,12 +56,15 @@ void			ft_filltroncp(int *tronc, t_struc *check_val);
 void			ft_filltroncperc(int *tronc, t_struc *check_val);
 void			ft_filltroncstr(int *tronc, t_struc *check_val);
 void			init_t_struc(t_struc *check_flag);
-char			*ft_convert_xmaj(unsigned int num, int base);
-char			*ft_convert_x(unsigned int num, int base);
-char			*ft_convert_u(int nb, int base);
-char			*ft_convert_uneg(int num);
-char			*ft_convert_p(unsigned long long nb, int base);
+char			*ft_convert_xmaj(unsigned int num, int base,
+	t_struc *check_val);
+char			*ft_convert_x(unsigned int num, int base, t_struc *check_val);
+char			*ft_convert_u(int nb, int base, t_struc *check_val);
+char			*ft_convert_uneg(int num, t_struc *check_val);
+char			*ft_convert_p(unsigned long long nb,
+	int base, t_struc *check_val);
 int				ft_convlen(unsigned int num);
+int				ft_convlenu(unsigned int num);
 int				ft_convlenp(unsigned long long num);
 char			*ft_reverse(char *str, unsigned long long num);
 int				ft_flag_size(const char *format);

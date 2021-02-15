@@ -19,7 +19,8 @@ void	ft_print_xw(t_struc *check_val)
 
 	i = 0;
 	if (!check_val->x)
-		check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16);
+		check_val->x = ft_convert_x(va_arg(*check_val->arg, int),
+			16, check_val);
 	if (check_val->less)
 		ft_putstr(check_val->x, check_val);
 	while (i < check_val->width - (int)ft_strlen(check_val->x))
@@ -32,6 +33,7 @@ void	ft_print_xw(t_struc *check_val)
 	}
 	if (!check_val->less)
 		ft_putstr(check_val->x, check_val);
+	ft_free_container(check_val);
 }
 
 void	ft_print_xp(t_struc *check_val)
@@ -39,7 +41,7 @@ void	ft_print_xp(t_struc *check_val)
 	int i;
 
 	i = 0;
-	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16);
+	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16, check_val);
 	if (check_val->less)
 		ft_putstr(check_val->x, check_val);
 	while (i < check_val->precision - (int)ft_strlen(check_val->x))
@@ -49,6 +51,7 @@ void	ft_print_xp(t_struc *check_val)
 	}
 	if (!check_val->less)
 		ft_putstr(check_val->x, check_val);
+	ft_free_container(check_val);
 }
 
 void	ft_print_xwp(t_struc *check_val)
@@ -57,7 +60,7 @@ void	ft_print_xwp(t_struc *check_val)
 	int tronc;
 
 	i = 0;
-	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16);
+	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16, check_val);
 	ft_filltroncx(&tronc, check_val);
 	if (check_val->less)
 	{
@@ -91,6 +94,7 @@ void	ft_print_xwp2(t_struc *check_val, int *tronc)
 		}
 		ft_putstr(check_val->x, check_val);
 	}
+	ft_free_container(check_val);
 }
 
 void	ft_print_xd(t_struc *check_val)
@@ -99,7 +103,7 @@ void	ft_print_xd(t_struc *check_val)
 	int tronc;
 
 	i = 0;
-	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16);
+	check_val->x = ft_convert_x(va_arg(*check_val->arg, int), 16, check_val);
 	ft_filltroncx(&tronc, check_val);
 	if (check_val->less && check_val->x[0] != '0')
 		ft_putstr(check_val->x, check_val);
@@ -110,4 +114,5 @@ void	ft_print_xd(t_struc *check_val)
 	}
 	if (!check_val->less && check_val->x[0] != '0')
 		ft_putstr(check_val->x, check_val);
+	ft_free_container(check_val);
 }

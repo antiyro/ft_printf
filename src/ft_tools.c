@@ -16,6 +16,7 @@
 void		init_t_struc(t_struc *check_val)
 {
 	check_val->arg_t = '\0';
+	check_val->container = 0;
 	check_val->d = 0;
 	check_val->c = 0;
 	check_val->u = 0;
@@ -85,4 +86,10 @@ void		ft_filltroncu(int *tronc, t_struc *check_val)
 	if (check_val->dot && !check_val->precision &&
 		check_val->u[0] == '0' && check_val->dot != 2)
 		*tronc = 0;
+}
+
+void		ft_free_container(t_struc *check_val)
+{
+	free(check_val->container);
+	check_val->container = NULL;
 }

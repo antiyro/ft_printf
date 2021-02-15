@@ -24,7 +24,11 @@ void	ft_print_u(t_struc *check_val)
 	else if (check_val->precision && check_val->width)
 		ft_print_uwp(check_val);
 	else
-		ft_putstr(ft_convert_u(va_arg(*check_val->arg, int), 10), check_val);
+	{
+		ft_putstr(ft_convert_u(va_arg(*check_val->arg, int), 10,
+			check_val), check_val);
+		ft_free_container(check_val);
+	}
 }
 
 void	ft_print_x(t_struc *check_val)
@@ -38,7 +42,11 @@ void	ft_print_x(t_struc *check_val)
 	else if (check_val->precision && check_val->width)
 		ft_print_xwp(check_val);
 	else
-		ft_putstr(ft_convert_x(va_arg(*check_val->arg, int), 16), check_val);
+	{
+		ft_putstr(ft_convert_x(va_arg(*check_val->arg, int), 16,
+			check_val), check_val);
+		ft_free_container(check_val);
+	}
 }
 
 void	ft_print_xmaj(t_struc *check_val)
@@ -52,5 +60,9 @@ void	ft_print_xmaj(t_struc *check_val)
 	else if (check_val->precision && check_val->width)
 		ft_print_xmajwp(check_val);
 	else
-		ft_putstr(ft_convert_xmaj(va_arg(*check_val->arg, int), 16), check_val);
+	{
+		ft_putstr(ft_convert_xmaj(va_arg(*check_val->arg, int), 16,
+			check_val), check_val);
+		ft_free_container(check_val);
+	}
 }

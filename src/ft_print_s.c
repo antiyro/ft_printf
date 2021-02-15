@@ -35,6 +35,8 @@ void	ft_print_sw(t_struc *check_val)
 	}
 	if (!check_val->less)
 		ft_putstr(check_val->s, check_val);
+	free(check_val->s);
+	check_val->s = NULL;
 }
 
 void	ft_print_sp(t_struc *check_val)
@@ -55,6 +57,8 @@ void	ft_print_sp(t_struc *check_val)
 		ft_putchar(check_val->s[i], check_val);
 		i++;
 	}
+	free(check_val->s);
+	check_val->s = NULL;
 }
 
 void	ft_print_swp(t_struc *check_val)
@@ -102,6 +106,8 @@ void	ft_print_swp2(t_struc *check_val, int *tronc)
 			i++;
 		}
 	}
+	free(check_val->s);
+	check_val->s = NULL;
 }
 
 void	ft_print_sd(t_struc *check_val)
@@ -119,4 +125,6 @@ void	ft_print_sd(t_struc *check_val)
 	if (check_val->width > 0)
 		ft_print_swp(check_val);
 	return ;
+	free(check_val->s);
+	check_val->s = NULL;
 }

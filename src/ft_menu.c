@@ -27,7 +27,8 @@ void	ft_print_p(t_struc *check_val)
 	{
 		ft_putstr("0x", check_val);
 		ft_putstr(ft_convert_p(((unsigned long long)
-			(va_arg(*check_val->arg, void*))), 16), check_val);
+			(va_arg(*check_val->arg, void*))), 16, check_val), check_val);
+		ft_free_container(check_val);
 	}
 }
 
@@ -75,5 +76,7 @@ void	ft_print_s(t_struc *check_val)
 			check_val->s = ft_strdup("(null)");
 		}
 		ft_putstr(check_val->s, check_val);
+		free(check_val->s);
+		check_val->s = NULL;
 	}
 }
